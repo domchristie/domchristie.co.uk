@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conway’s Game of Life with Redux + Canvas</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/2016/03/09/conway-s-game-of-life-with-redux-canvas.html">
+  <link rel="alternate" type="application/rss+xml" title="Dom Christie" href="http://localhost:4000/feed.xml">
+</head>
+
+  <body>
+    <header role="banner" class="navigation">
+  <nav>
+    <a href="/" title="Dom Christie Home (Recent Posts)">
+      <img src="/domchristie.jpg" alt="" width="24" height="24" />
+      <span class="name">Dom Christie</span>
+    </a>
+    <ul>
+      
+        
+        <li><a href="/about/">About</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+      <li><a href="/feed.xml">RSS</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <main class="container">
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post__header">
+    <time datetime="2016-03-09T09:43:13+00:00" itemprop="datePublished">
+      
+        09 Mar 2016
+      
+    </time>
+
+    
+      <h1 itemprop="name headline">
+        
+          Conway’s Game of Life with Redux + Canvas
+        
+      </h1>
+    
+  </header>
+  <div class="post__body" itemprop="articleBody">
+    <a href="http://jsbin.com/cijefu"><img src="https://s3-eu-west-1.amazonaws.com/domchristie/conways-game-of-life-redux.png" alt="Animation of Conway&#x2019;s Game of Life"></a>
+
+<p>In the past few weeks I&#x2019;ve been doing a fair bit of work with <a href="http://redux.js.org">Redux</a>, a library which helps manage data and state in JavaScript applications. There&#x2019;s an emphasis on functional programming and immutable data, which takes a little getting used to, but it does feel like a suitable approach&#x2014;particularly for implementing Conway&#x2019;s Game of Life&#x2026;</p>
+
+<blockquote>
+<p>each generation is a pure function of the preceding one</p>
+<cite><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules">Conway&#x2019;s Game of Life on Wikipedia</a></cite>
+</blockquote>
+
+<p>This fits nicely with Redux&#x2019;s concept of &#x201C;reducers&#x201D;, which take in the current state and an &#x201C;action&#x201D;, and return a new state.</p>
+
+<p>The app state is just the grid: an array of arrays containing cell values (1s and 0s). There is just a single action, a <code>&apos;TICK&apos;</code>, and when a <code>&apos;TICK&apos;</code> is dispatched, the <code>grid</code> reducer generates a new grid based on the current grid:</p>
+
+<pre><code>function grid (state, action) {
+  if (typeof state === &apos;undefined&apos;) return randomGrid()
+
+  switch (action.type) {
+    case &apos;TICK&apos;:
+      return nextGrid(state)
+    default:
+      return state
+  }
+}
+
+function nextGrid (grid) {
+  return grid.reduce(function (nextGrid, currentRow, y) {
+    var newRow = currentRow.map(function (value, x) {
+      return nextValue(x, y, value, grid)
+    })
+
+    nextGrid.push(newRow)
+
+    return nextGrid
+  }, [])
+}
+</code></pre>
+
+<p>The grid values for the next tick are computed based on the neighbouring values (as per <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules">the rules</a>):</p>
+
+<pre><code>function nextValue (x, y, value, grid) {
+  var neighbours = neighboursOf(x, y, grid)
+
+  var livingNeighbours = neighbours.filter(function (value) {
+    return !!value
+  }).length
+
+  return +willLive(value, livingNeighbours)
+}
+
+function willLive (value, livingNeighbours) {
+  return value
+    ? livingNeighbours === 2 || livingNeighbours === 3
+    : livingNeighbours === 3
+}
+
+function neighboursOf (x, y, grid) {
+  return [
+    [-1, -1], [0, -1], [1, -1],
+    [-1,  0], /*x,y*/  [1,  0],
+    [-1,  1], [0,  1], [1,  1]
+  ].map(function (coords) {
+    return valueAt(x + coords[0], y + coords[1], grid)
+  })
+}
+
+function valueAt (x, y, grid) { return grid[y] &amp;&amp; grid[y][x] }
+</code></pre>
+
+<p>The <code>render</code> function redraws the state on a <code>&lt;canvas&gt;</code> whenever it changes, and a <code>&apos;TICK&apos;</code> is dispatched every 100ms to generate the next state: </p>
+
+<pre><code>var store = Redux.createStore(grid)
+store.subscribe(render)
+
+render()
+
+setInterval(function () {
+  store.dispatch({ type: &apos;TICK&apos; })
+}, 100)
+</code></pre>
+
+<p>I&#x2019;m sure this could be improved, but it feels like a pretty nice solution.</p>
+
+<p>See it in action: <a href="http://jsbin.com/cijefu">Conway&#x2019;s Game of Life with Redux and Canvas</a>, and <a href="http://jsbin.com/cijefu/edit?html,css,js,output">view the full source</a>.</p>
+
+<p><small>Hat tip to <a href="https://github.com/alanrsoares">Alan R. Soares</a>. I had a peak at <a href="https://github.com/alanrsoares/redux-game-of-life">his implementation with React</a> and refined my <code>willLive</code> function a based on it.</small></p>
+  </div>
+</article>
+
+
+
+    </main>
+  </body>
+</html>

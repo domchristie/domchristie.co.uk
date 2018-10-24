@@ -1,0 +1,108 @@
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+body { line-height: 1.375; color: #000000; background-color: white; }
+
+.container { width: 95%; max-width: 48em; margin: 0 auto; }
+
+time { font-size: 0.8125em; display: inline-block; font-family: courier; color: #666; }
+time a { text-decoration: none; }
+
+h1 { font-size: 1.3em; font-family: Courier, monospace; font-weight: bold; text-transform: uppercase; letter-spacing: .1em; line-height: 1.25; margin: 1em 0; }
+h1 a { text-decoration: none; }
+
+h2 { font-family: Verdana, sans-serif; font-size: 1em; font-weight: bold; margin: 1em 0; }
+h2 a { text-decoration: none; }
+
+h3, h4, h5, h6 { font-family: Courier, monospace; font-size: 1em; font-weight: bold; margin: 1em 0; text-transform: uppercase; letter-spacing: .0625em; }
+
+p { margin: 1em 0; }
+
+ul { margin: 1em 0; list-style: square; list-style-position: outside; }
+
+li { margin-left: 1em; }
+
+blockquote { margin: 1em 0; padding: 0 2.60417%; border-left: .1875em solid #CCCCCC; color: #666; }
+
+pre, code { font-family: Courier, monospace; }
+
+code { font-size: .8125em; }
+
+pre { margin: 1em 0; overflow-x: auto; line-height: 1.23077em; }
+
+.caption { margin-top: -.6875em; line-height: 1.181818; }
+
+.caption small, cite { font-size: .6875em; font-family: Verdana, sans-serif; font-style: normal; color: #000000; }
+
+cite { display: block; }
+
+.embed { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; }
+.embed::before { display: block; content: ""; }
+.embed .embed-item, .embed iframe, .embed embed, .embed object, .embed video { position: absolute; top: 0; bottom: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+.embed--21by9::before { padding-top: 42.8571428571%; }
+
+.embed--16by9::before { padding-top: 56.25%; }
+
+.embed--3by2::before { padding-top: 150%; }
+
+.embed--4by3::before { padding-top: 75%; }
+
+.embed--1by1::before { padding-top: 100%; }
+
+.navigation { margin-bottom: 1em; padding: .5em; }
+
+nav { font-family: courier, monospace; font-size: .8125em; line-height: 1; text-transform: uppercase; font-weight: bold; }
+nav img { position: absolute; border-radius: 12px; top: 3px; left: .5em; }
+nav .name { color: black; margin-left: 30px; }
+nav ul { margin: 0; list-style: none; float: right; }
+nav li { float: left; margin-left: 1em; }
+nav li:last-child a { color: #666; }
+nav a { color: blue; text-decoration: none; }
+
+.year + .year { margin-top: 3.375em; }
+
+.year__heading { margin: 0 0 1.125em; }
+.year__heading span { padding-bottom: 0.1875rem; border-bottom: 0.1875rem solid #000; }
+
+.posts { margin: 0; list-style: none; }
+
+li.post { margin: 0 0 .75em; }
+li.post h2 { margin: 0; }
+
+li.post .post__body *:first-child { margin-top: 0; }
+
+article.post { margin-bottom: 3.375em; }
+article.post time { line-height: 1.3076923076923076923; padding-bottom: 0.25rem; border-bottom: 3px solid #ccc; }
+
+.post__body { font-family: "Times New Roman", serif; }
+
+.post__body p, .post__body li { max-width: 31.25em; }
+
+.post__body img { display: block; margin: 1em 0; width: 100%; max-width: 31.25em; }
+
+.post__body .embed, .post__body iframe { max-width: 31.25em; }
+
+.post__body blockquote { max-width: 29.0625em; }
+
+table { width: 100%; max-width: 100%; font-family: 'Helvetica Neue', sans-serif; font-size: 0.875em; border-spacing: 0; border-collapse: collapse; margin-bottom: 1.14286em; }
+
+table > tbody > tr:nth-of-type(odd) { background-color: #f6f6f6; }
+
+th, td { padding: 0.28571em; text-align: left; border-bottom: 1px solid #e6e6e6; }
+
+th { border-bottom-color: #191919; }
+
+.number { text-align: right; }

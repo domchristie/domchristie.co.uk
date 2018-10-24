@@ -1,0 +1,53 @@
+$golden-em: 1.618033988749895em;
+
+nav {
+  display: none;
+}
+
+html {
+  margin: 1em $golden-em;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "helvetica neue", sans-serif;
+}
+
+section {
+  margin-bottom: $golden-em + 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  margin-bottom: $golden-em;
+  font-size: 2em;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: $golden-em;
+  line-height: 1.235em;
+}
+
+h3 {
+  font-size: 1.2857em;
+  line-height: 1.375;
+}
+
+ul, ul li {
+  list-style: square;
+}
+
+a {
+  color: #0074D9;
+}
+
+.muted {
+  color: #666;
+  font-weight: 400;
+}
+
+#work-history {
+  page-break-after: always;
+}

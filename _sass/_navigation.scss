@@ -1,0 +1,44 @@
+.navigation {
+  margin-bottom: 1em;
+  padding: .5em;
+}
+
+nav {
+  font-family: courier, monospace;
+  font-size: .8125em;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  img {
+    position: absolute;
+    border-radius: 12px;
+    top: 3px;
+    left: .5em;
+  }
+
+  .name {
+    color: black;
+    margin-left: 30px;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+    float: right;
+  }
+
+  li {
+    float: left;
+    margin-left: 1em;
+
+    &:last-child a {
+      color: #666;
+    }
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+}

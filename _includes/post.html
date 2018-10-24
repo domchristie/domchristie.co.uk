@@ -1,0 +1,32 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post__header">
+    <time datetime="{{ include.post.date | date_to_xmlschema }}" itemprop="datePublished">
+      {% if include.post.title != "" %}
+        {{ include.post.date | date_to_string }}
+      {% else %}
+        {% if include.context == 'list' %}
+          <a href="{{ include.post.url | prepend: site.baseurl }}">
+            {{ include.post.date | date_to_string }}
+          </a>
+        {% else %}
+          {{ include.post.date | date_to_string }}
+        {% endif %}
+      {% endif %}
+    </time>
+
+    {% if include.post.title != "" %}
+      <h1 itemprop="name headline">
+        {% if include.context == 'list' %}
+           <a href="{{ include.post.url | prepend: site.baseurl }}">
+             {{ include.post.title }}
+           </a>
+        {% else %}
+          {{ include.post.title }}
+        {% endif %}
+      </h1>
+    {% endif %}
+  </header>
+  <div class="post__body" itemprop="articleBody">
+    {{ include.post.content }}
+  </div>
+</article>

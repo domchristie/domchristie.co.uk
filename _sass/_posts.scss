@@ -1,0 +1,64 @@
+.year + .year {
+  margin-top: 3.375em;
+}
+
+.year__heading {
+  margin: 0 0 1.125em;
+
+  span {
+    padding-bottom: 0.1875rem;
+    border-bottom: 0.1875rem solid #000;
+  }
+}
+
+.posts {
+  margin: 0;
+  list-style: none;
+}
+
+li.post {
+  margin: 0 0 .75em;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+li.post .post__body *:first-child {
+  margin-top: 0;
+}
+
+article.post {
+  margin-bottom: 3.375em;
+
+  time {
+    line-height: 1.3076923076923076923;
+    padding-bottom: 0.25rem;
+    border-bottom: 3px solid #ccc;
+  }
+}
+
+.post__body {
+  font-family: "Times New Roman", serif;
+}
+
+.post__body p,
+.post__body li {
+  max-width: 31.25em;
+}
+
+.post__body img {
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+  max-width: 31.25em;
+}
+
+.post__body .embed,
+.post__body iframe {
+  max-width: 31.25em;
+}
+
+.post__body blockquote {
+  max-width: 29.0625em;
+}
