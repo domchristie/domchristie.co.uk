@@ -1,3 +1,7 @@
+// ===========
+// = Grouped =
+// ===========
+
 .year + .year {
   margin-top: 3.375em;
 }
@@ -16,6 +20,10 @@
   list-style: none;
 }
 
+// =============
+// = List Item =
+// =============
+
 li.post {
   margin: 0 0 .75em;
 
@@ -28,15 +36,21 @@ li.post .post__body *:first-child {
   margin-top: 0;
 }
 
-article.post {
-  margin-bottom: 3.375em;
+// ========
+// = Show =
+// ========
 
+article.post {
   time {
     line-height: 1.3076923076923076923;
     padding-bottom: 0.25rem;
     border-bottom: 3px solid #ccc;
   }
 }
+
+// ========
+// = Body =
+// ========
 
 .post__body {
   font-family: "Times New Roman", serif;
@@ -61,4 +75,31 @@ article.post {
 
 .post__body blockquote {
   max-width: 29.0625em;
+}
+
+// ==============
+// = Navigation =
+// ==============
+
+.post-navigation {
+  max-width: 31.25rem;
+  font-size: 0.8125em;
+  overflow: hidden;
+}
+
+.post-navigation--older-newer {
+  margin-top: 1.375rem;
+}
+
+.post-navigation a {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.post-navigation__older {
+  float: left;
+}
+
+.post-navigation__newer {
+  float: right;
 }

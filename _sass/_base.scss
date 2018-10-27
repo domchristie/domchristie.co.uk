@@ -50,8 +50,10 @@ table {
 }
 
 body {
+  margin-bottom: 3.375em;
+  font-family: courier, monospace, sans-serif;
   line-height: 1.375;
-  color: #000000;
+  color: black;
   background-color: white;
 }
 
@@ -64,7 +66,6 @@ body {
 time {
   font-size: 0.8125em;
   display: inline-block;
-  font-family: courier;
   color: #666;
 
   a {
@@ -73,8 +74,7 @@ time {
 }
 
 h1 {
-  font-size: 1.3em;
-  font-family: Courier, monospace;
+  font-size: 1.25em;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -91,14 +91,9 @@ h2 {
   font-size: 1em;
   font-weight: bold;
   margin: 1em 0;
-
-  a {
-    text-decoration: none;
-  }
 }
 
 h3, h4, h5, h6 {
-  font-family: Courier, monospace;
   font-size: 1em;
   font-weight: bold;
   margin: 1em 0;
@@ -123,12 +118,12 @@ li {
 blockquote {
   margin: 1em 0;
   padding: 0 2.60417%;
-  border-left: .1875em solid #CCCCCC;
+  border-left: .1875em solid #ccc;
   color: #666;
 }
 
 pre, code {
-  font-family: Courier, monospace;
+  font-family: courier, monospace;
 }
 
 code {
@@ -151,7 +146,7 @@ cite {
   font-size: .6875em;
   font-family: Verdana, sans-serif;
   font-style: normal;
-  color: #000000;
+  color: black;
 }
 
 cite {
