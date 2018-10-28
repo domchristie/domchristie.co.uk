@@ -1,7 +1,7 @@
 ---
 title: "Array Controllers in Ember.js"
 date: Fri Aug 29 2014 12:58:18 GMT+0100 (BST)
-tags: 
+tags:
   - ember.js
 ---
 
@@ -9,7 +9,7 @@ tags:
 
 <p>An array controller&#x2019;s <code>model</code> is typically set in a route, for example:</p>
 
-<pre><code>App.IndexRoute = Ember.Route.extend({
+<pre><code>{% raw %}App.IndexRoute = Ember.Route.extend({
   model: function() {
     return [
       {name: &apos;red&apos;},
@@ -18,7 +18,7 @@ tags:
     ];
   }
 });
-// (The Index ArrayController is setup implicitly)
+// (The Index ArrayController is setup implicitly){% endraw %}
 </code></pre>
 
 <p>Setting an array controller&#x2019;s <code>model</code> sets up its <code>content</code> property, which forms the basis for other properties and methods.</p>
@@ -35,11 +35,11 @@ tags:
 
 <p><code>index</code> template:</p>
 
-<pre><code>{{#each}} {{name}} {{/each}}
+<pre><code>{% raw %}{{#each}} {{name}} {{/each}}
 
 {{#each content}} {{name}} {{/each}}
 
-{{#each arrangedContent}} {{name}} {{/each}}
+{{#each arrangedContent}} {{name}} {{/each}}{% endraw %}
 </code></pre>
 
 <div class="caption"><a href="http://emberjs.jsbin.com/nuzoja/1/edit?html,js,output">http://emberjs.jsbin.com/nuzoja/1</a></div>
@@ -53,14 +53,14 @@ tags:
 
 <p><code>index</code> template:</p>
 
-<pre><code>{{!-- Sorted by name --}}
+<pre><code>{% raw %}{{!-- Sorted by name --}}
 {{#each}} &#x2026;
 
 {{!-- Not Sorted --}}
 {{#each content}} &#x2026;
 
 {{!-- Sorted by name --}}
-{{#each arrangedContent}} &#x2026;
+{{#each arrangedContent}} &#x2026;{% endraw %}
 </code></pre>
 
 <div class="caption"><a href="http://emberjs.jsbin.com/nuzoja/2/edit?html,js,output">http://emberjs.jsbin.com/nuzoja/2/edit</a></div>
@@ -82,7 +82,7 @@ App.ColorController = Ember.ObjectController.extend({
 
 <p><code>index</code> template:</p>
 
-<pre><code>{{!-- Names rendered --}}
+<pre><code>{% raw %}{{!-- Names rendered --}}
 {{#each}}
   {{#if isActive}} {{name}} {{/if}}
 {{/each}}
@@ -95,16 +95,16 @@ App.ColorController = Ember.ObjectController.extend({
 {{!-- Nothing rendered --}}
 {{#each arrangedContent}}
   {{#if isActive}} {{name}} {{/if}}
-{{/each}}
+{{/each}}{% endraw %}
 </code></pre>
 
 <div class="caption"><a href="http://emberjs.jsbin.com/nuzoja/3/edit?html,js,output">http://emberjs.jsbin.com/nuzoja/3/edit</a></div>
 
 <p>Nothing is rendered in the loops that iterate over <code>content</code> or <code>arrangedContent</code> because the items are not wrapped in an item controller and therefore <code>isActive</code> is inaccessible.</p>
 
-<h3>{{#each itemController=&apos;&#x2026;&apos;}}</h3>
+<h3>{% raw %}{{#each itemController=&apos;&#x2026;&apos;}}{% endraw %}</h3>
 
-<p><code>{{#each}}</code> helpers, when supplied with an <code>itemController</code> property, wrap each item in <strong>a new instance</strong> of the referenced controller. This operates entirely independently from the <code>itemController</code> property on an array controller: an array controller will not have access to any item controller created via an <code>{{#each}}</code> helper.</p>
+<p><code>{% raw %}{{#each}}{% endraw %}</code> helpers, when supplied with an <code>itemController</code> property, wrap each item in <strong>a new instance</strong> of the referenced controller. This operates entirely independently from the <code>itemController</code> property on an array controller: an array controller will not have access to any item controller created via an <code>{% raw %}{{#each}}{% endraw %}</code> helper.</p>
 
 <p>This becomes particularly important when implementing a computed property on an array controller that depends on properties on an item controller. See <a href="http://emberjs.jsbin.com/nuzoja/9/edit?html,js,output">the example</a>.</p>
 
