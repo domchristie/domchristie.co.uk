@@ -89,11 +89,11 @@
 
 <p><code>index</code> template:</p>
 
-<pre><code>  
+<pre><code>{{#each}} {{name}} {{/each}}
 
-  
+{{#each content}} {{name}} {{/each}}
 
-  
+{{#each arrangedContent}} {{name}} {{/each}}
 </code></pre>
 
 <div class="caption"><a href="http://emberjs.jsbin.com/nuzoja/1/edit?html,js,output">http://emberjs.jsbin.com/nuzoja/1</a></div>
@@ -107,11 +107,14 @@
 
 <p><code>index</code> template:</p>
 
-<pre><code> &#x2026;
+<pre><code>{{!-- Sorted by name --}}
+{{#each}} &#x2026;
 
- &#x2026;
+{{!-- Not Sorted --}}
+{{#each content}} &#x2026;
 
- &#x2026;
+{{!-- Sorted by name --}}
+{{#each arrangedContent}} &#x2026;
 </code></pre>
 
 <div class="caption"><a href="http://emberjs.jsbin.com/nuzoja/2/edit?html,js,output">http://emberjs.jsbin.com/nuzoja/2/edit</a></div>
@@ -133,26 +136,29 @@ App.ColorController = Ember.ObjectController.extend({
 
 <p><code>index</code> template:</p>
 
-<pre><code>
-    
+<pre><code>{{!-- Names rendered --}}
+{{#each}}
+  {{#if isActive}} {{name}} {{/if}}
+{{/each}}
 
+{{!-- Nothing rendered --}}
+{{#each content}}
+  {{#if isActive}} {{name}} {{/if}}
+{{/each}}
 
-
-    
-
-
-
-    
-
+{{!-- Nothing rendered --}}
+{{#each arrangedContent}}
+  {{#if isActive}} {{name}} {{/if}}
+{{/each}}
 </code></pre>
 
 <div class="caption"><a href="http://emberjs.jsbin.com/nuzoja/3/edit?html,js,output">http://emberjs.jsbin.com/nuzoja/3/edit</a></div>
 
 <p>Nothing is rendered in the loops that iterate over <code>content</code> or <code>arrangedContent</code> because the items are not wrapped in an item controller and therefore <code>isActive</code> is inaccessible.</p>
 
-<h3></h3>
+<h3>{{#each itemController=&apos;&#x2026;&apos;}}</h3>
 
-<p><code></code> helpers, when supplied with an <code>itemController</code> property, wrap each item in <strong>a new instance</strong> of the referenced controller. This operates entirely independently from the <code>itemController</code> property on an array controller: an array controller will not have access to any item controller created via an <code></code> helper.</p>
+<p><code>{{#each}}</code> helpers, when supplied with an <code>itemController</code> property, wrap each item in <strong>a new instance</strong> of the referenced controller. This operates entirely independently from the <code>itemController</code> property on an array controller: an array controller will not have access to any item controller created via an <code>{{#each}}</code> helper.</p>
 
 <p>This becomes particularly important when implementing a computed property on an array controller that depends on properties on an item controller. See <a href="http://emberjs.jsbin.com/nuzoja/9/edit?html,js,output">the example</a>.</p>
 
@@ -163,6 +169,7 @@ App.ColorController = Ember.ObjectController.extend({
 <li><a href="http://ember.guru/2014/hidden-features-of-the-each-aka-loopedy-loop-helper">The <code>#each</code> helper post</a> on ember.guru</li>
 <li><a href="http://www.confreaks.com/videos/3457-emberconf2014-array-computed-properties">Array Computed Properties</a> talk by David Hamilton</li>
 </ul>
+
   </div>
 </article>
 

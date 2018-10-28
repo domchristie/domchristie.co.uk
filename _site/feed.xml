@@ -6,7 +6,20 @@
         <link>http://localhost:4000</link>
         <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-        <lastBuildDate>Sat, 27 Oct 2018 12:50:25 +0100</lastBuildDate>
+        <lastBuildDate>Sun, 28 Oct 2018 10:36:58 +0000</lastBuildDate>
+        
+        <item>
+            <description>
+                &lt;blockquote&gt;
+  &lt;p&gt;foo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+            </description>
+            <pubDate>Sat, 27 Oct 2018 00:00:00 +0100</pubDate>
+            <guid>
+                http://localhost:4000/2018/10/27/perfectionism.html
+            </guid>
+        </item>
         
         <item>
             <description>
@@ -90,8 +103,9 @@
         
         <item>
             <description>
-                &lt;blockquote&gt;Small-scale operations, no matter how numerous, are always less likely to be harmful to the natural environment than large-scale ones, simply because their force is small in relation to the recuperative forces of nature. There is wisdom in smallness if only on the account of the smallness and patchiness of human knowledge, which relies on experiment far more than understanding. The greatest danger invariably arises from the ruthless application, on a vast scale, of partial knowledge such as we are currently witnessing in the application of nuclear energy, of the new chemistry in agriculture, of transportation technology, and countless other things.
+                &lt;blockquote&gt;&lt;p&gt;Small-scale operations, no matter how numerous, are always less likely to be harmful to the natural environment than large-scale ones, simply because their force is small in relation to the recuperative forces of nature. There is wisdom in smallness if only on the account of the smallness and patchiness of human knowledge, which relies on experiment far more than understanding. The greatest danger invariably arises from the ruthless application, on a vast scale, of partial knowledge such as we are currently witnessing in the application of nuclear energy, of the new chemistry in agriculture, of transportation technology, and countless other things.&lt;/p&gt;
 &lt;cite&gt;E.F. Schumacher &lt;span class=&quot;byline lower&quot;&gt;in&lt;/span&gt; Small is Beautiful 1974, &lt;span class=&quot;lower&quot;&gt;p.29&lt;/span&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
             </description>
             <pubDate>Tue, 24 Jan 2017 07:56:18 +0000</pubDate>
             <guid>
@@ -755,11 +769,11 @@ setInterval(function () {
 
 &lt;p&gt;&lt;code&gt;index&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;  
+&lt;pre&gt;&lt;code&gt;{{#each}} {{name}} {{/each}}
 
-  
+{{#each content}} {{name}} {{/each}}
 
-  
+{{#each arrangedContent}} {{name}} {{/each}}
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&quot;caption&quot;&gt;&lt;a href=&quot;http://emberjs.jsbin.com/nuzoja/1/edit?html,js,output&quot;&gt;http://emberjs.jsbin.com/nuzoja/1&lt;/a&gt;&lt;/div&gt;
@@ -773,11 +787,14 @@ setInterval(function () {
 
 &lt;p&gt;&lt;code&gt;index&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; &amp;#x2026;
+&lt;pre&gt;&lt;code&gt;{{!-- Sorted by name --}}
+{{#each}} &amp;#x2026;
 
- &amp;#x2026;
+{{!-- Not Sorted --}}
+{{#each content}} &amp;#x2026;
 
- &amp;#x2026;
+{{!-- Sorted by name --}}
+{{#each arrangedContent}} &amp;#x2026;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&quot;caption&quot;&gt;&lt;a href=&quot;http://emberjs.jsbin.com/nuzoja/2/edit?html,js,output&quot;&gt;http://emberjs.jsbin.com/nuzoja/2/edit&lt;/a&gt;&lt;/div&gt;
@@ -799,26 +816,29 @@ App.ColorController = Ember.ObjectController.extend({
 
 &lt;p&gt;&lt;code&gt;index&lt;/code&gt; template:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-    
+&lt;pre&gt;&lt;code&gt;{{!-- Names rendered --}}
+{{#each}}
+  {{#if isActive}} {{name}} {{/if}}
+{{/each}}
 
+{{!-- Nothing rendered --}}
+{{#each content}}
+  {{#if isActive}} {{name}} {{/if}}
+{{/each}}
 
-
-    
-
-
-
-    
-
+{{!-- Nothing rendered --}}
+{{#each arrangedContent}}
+  {{#if isActive}} {{name}} {{/if}}
+{{/each}}
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&quot;caption&quot;&gt;&lt;a href=&quot;http://emberjs.jsbin.com/nuzoja/3/edit?html,js,output&quot;&gt;http://emberjs.jsbin.com/nuzoja/3/edit&lt;/a&gt;&lt;/div&gt;
 
 &lt;p&gt;Nothing is rendered in the loops that iterate over &lt;code&gt;content&lt;/code&gt; or &lt;code&gt;arrangedContent&lt;/code&gt; because the items are not wrapped in an item controller and therefore &lt;code&gt;isActive&lt;/code&gt; is inaccessible.&lt;/p&gt;
 
-&lt;h3&gt;&lt;/h3&gt;
+&lt;h3&gt;{{#each itemController=&amp;apos;&amp;#x2026;&amp;apos;}}&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;&lt;/code&gt; helpers, when supplied with an &lt;code&gt;itemController&lt;/code&gt; property, wrap each item in &lt;strong&gt;a new instance&lt;/strong&gt; of the referenced controller. This operates entirely independently from the &lt;code&gt;itemController&lt;/code&gt; property on an array controller: an array controller will not have access to any item controller created via an &lt;code&gt;&lt;/code&gt; helper.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{#each}}&lt;/code&gt; helpers, when supplied with an &lt;code&gt;itemController&lt;/code&gt; property, wrap each item in &lt;strong&gt;a new instance&lt;/strong&gt; of the referenced controller. This operates entirely independently from the &lt;code&gt;itemController&lt;/code&gt; property on an array controller: an array controller will not have access to any item controller created via an &lt;code&gt;{{#each}}&lt;/code&gt; helper.&lt;/p&gt;
 
 &lt;p&gt;This becomes particularly important when implementing a computed property on an array controller that depends on properties on an item controller. See &lt;a href=&quot;http://emberjs.jsbin.com/nuzoja/9/edit?html,js,output&quot;&gt;the example&lt;/a&gt;.&lt;/p&gt;
 
@@ -829,6 +849,7 @@ App.ColorController = Ember.ObjectController.extend({
 &lt;li&gt;&lt;a href=&quot;http://ember.guru/2014/hidden-features-of-the-each-aka-loopedy-loop-helper&quot;&gt;The &lt;code&gt;#each&lt;/code&gt; helper post&lt;/a&gt; on ember.guru&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.confreaks.com/videos/3457-emberconf2014-array-computed-properties&quot;&gt;Array Computed Properties&lt;/a&gt; talk by David Hamilton&lt;/li&gt;
 &lt;/ul&gt;
+
             </description>
             <pubDate>Fri, 29 Aug 2014 12:58:18 +0100</pubDate>
             <guid>
@@ -2028,7 +2049,8 @@ var user = new App.User();
             <description>
                 &lt;p&gt;I&amp;apos;ve never been a big fan of watching the big Apple launch events, however I&amp;apos;ve found that listening to Steve Jobs talk about working at Apple and developing products is fascinating:&lt;/p&gt;
 
-&lt;iframe frameborder=&quot;0&quot; scrolling=&quot;no&quot; width=&quot;500&quot; height=&quot;288&quot; src=&quot;https://live.wsj.com/public/page/embed-70F7CC1D_FFBF_4BE0_BFF1_08C300E31E11.html&quot;&gt;&lt;/iframe&gt;
+&lt;iframe allowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot; mozallowfullscreen=&quot;true&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; width=&quot;500&quot; height=&quot;281&quot; src=&quot;https://video-api.wsj.com/api-video/player/v3/iframe.html?guid=70F7CC1D-FFBF-4BE0-BFF1-08C300E31E11&amp;shareDomain=null&quot;&gt;&lt;/iframe&gt;
+
             </description>
             <pubDate>Wed, 21 Nov 2012 23:25:41 +0000</pubDate>
             <guid>

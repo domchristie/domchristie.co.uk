@@ -95,7 +95,7 @@ article.post time { line-height: 1.3076923076923076923; padding-bottom: 0.25rem;
 
 .post__body blockquote { max-width: 29.0625em; }
 
-.post-navigation { max-width: 31.25rem; font-size: 0.8125em; overflow: hidden; }
+.post-navigation { max-width: 31.25rem; font-size: 0.8125em; font-weight: bold; overflow: hidden; }
 
 .post-navigation--older-newer { margin-top: 1.375rem; }
 
