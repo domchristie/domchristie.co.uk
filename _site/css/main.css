@@ -61,7 +61,7 @@ cite { display: block; }
 
 .embed--1by1::before { padding-top: 100%; }
 
-.navigation { margin-bottom: 1em; padding: .5em; }
+.navigation { margin-bottom: 1em; padding: .75em .5em; }
 
 nav { font-size: .8125em; line-height: 1; text-transform: uppercase; font-weight: bold; }
 nav img { position: absolute; border-radius: 12px; top: 3px; left: .5em; }
