@@ -6,7 +6,18 @@
         <link>http://localhost:4000</link>
         <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-        <lastBuildDate>Tue, 12 Mar 2019 07:49:33 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 22 May 2019 13:05:31 +0100</lastBuildDate>
+        
+        <item>
+            <description>
+                &lt;p&gt;&lt;img src=&quot;https://s3-eu-west-1.amazonaws.com/domchristie/deeper_than_that.jpg&quot; alt=&quot;Deeper than that. Brexit is now giving birth to a new realigment. Brexit identities.  Relatives marry / Remainers. What could this mean?&quot; /&gt;&lt;/p&gt;
+
+            </description>
+            <pubDate>Wed, 22 May 2019 00:00:00 +0100</pubDate>
+            <guid>
+                http://localhost:4000/2019/05/22/found-poetry-deeper-than-that.html
+            </guid>
+        </item>
         
         <item>
             <description>
@@ -31,6 +42,7 @@
 &lt;p&gt;This song is about trying to navigate our experience of the world, trying to figure out what&amp;apos;s real and what&amp;apos;s not, and making the best of what comes our way.&lt;/p&gt;
 &lt;cite&gt;Tunng&lt;/cite&gt;
 &lt;/blockquote&gt;
+
             </description>
             <pubDate>Tue, 04 Sep 2018 08:44:36 +0100</pubDate>
             <guid>
