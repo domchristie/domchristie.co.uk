@@ -6,12 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 # Site settings
 title: Dom Christie
-description: > # this means to ignore newlines until "baseurl:"
-  Born in Denmark. Grew up in London. Live in L.A.
-timezone: Europe/London
+description: Born in Denmark. Grew up in London. Live in L.A.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "https://domchristie.co.uk/"
 # Build settings
+timezone: Europe/London
 markdown: kramdown
 include: [_redirects]
 defaults:
