@@ -1,23 +1,23 @@
 .navigation {
   margin-bottom: 1em;
-  padding: .75em .5em;
+  padding: .5em;
 }
-
 nav {
   font-size: .8125em;
   line-height: 1;
   text-transform: uppercase;
-  font-weight: bold;
+  letter-spacing: 0.04em;
 
-  img {
-    position: absolute;
-    border-radius: 12px;
-    top: 7px;
-    left: .5em;
+  & > a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 1rem;
   }
 
-  .name {
-    margin-left: 30px;
+  & > a img {
+    margin-right: .375rem;
+    border-radius: 50%;
   }
 
   ul {
@@ -35,7 +35,8 @@ nav {
     }
   }
 
-  a {
+  a[aria-current="location"] {
     text-decoration: none;
+    color: black;
   }
 }
