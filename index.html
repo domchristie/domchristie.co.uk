@@ -22,10 +22,23 @@ layout: null
       color: black;
     }
 
+    a:active {
+      color: #c00
+    }
+
     @media (prefers-color-scheme: dark) {
       html {
         background: repeating-conic-gradient(black 0% 25%, #111 0% 50%) 50%/ 1em 1em;
         color: white;
+      }
+      a {
+        color: #37f;
+      }
+      a:visited {
+        color: #b363ff;
+      }
+      a:active {
+        color: #f00;
       }
     }
 
