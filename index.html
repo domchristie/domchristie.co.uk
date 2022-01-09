@@ -252,46 +252,11 @@ layout: null
     </nav>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-  <script>
-    const el = document.getElementById('letters')
-    const ANIMATION_DURATION = 150
-    const sortable = new Sortable(el, {
-      animation: ANIMATION_DURATION
-    })
-
-    const visited = JSON.parse(window.sessionStorage.getItem("visited"))
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-    const permitsMotion = mediaQuery && !mediaQuery.matches
-    if (!visited && permitsMotion) animateDemo()
-
-    async function animateDemo () {
-      const demos = [
-        ["01", "02", "00", "09", "05", "07", "08", "12", "03", "11", "06", "04", "10"], // do_this_merci
-        ["03", "02", "08", "09", "00", "05", "10", "01", "12", "06", "07", "04", "11"], // most_hid_rice,
-        ["08", "10", "06", "00", "03", "02", "12", "07", "09", "04", "05", "11", "01"], // sir_mo_itched
-      ]
-      const randomDemo = demos[random(demos.length - 1)]
-
-      const demoAnimationDuration = 500
-      sortable.option("animation", demoAnimationDuration)
-      sortable.sort(randomDemo, true)
-
-      await wait(2000)
-      sortable.sort(randomDemo.sort(), true)
-      await wait(demoAnimationDuration)
-      sortable.option("animation", ANIMATION_DURATION)
-    }
-
-    function wait (ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms))
-    }
-
-    function random(max) {
-      return Math.round(Math.random() * max)
-    }
-
-    window.sessionStorage.setItem("visited", true)
+  <script type="module">
+    import Anagram from 'https://cdn.jsdelivr.net/gh/domchristie/anagram/anagram.min.js'
+    const anagram = new Anagram(document.getElementById('letters'))
+    anagram.start()
+    if (anagram.shouldDemo) anagram.demo()
   </script>
 </body>
 
