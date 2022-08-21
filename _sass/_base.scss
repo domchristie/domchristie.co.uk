@@ -105,9 +105,14 @@ p {
   margin: 1em 0;
 }
 
-ul {
+ul, ol {
   margin: 1em 0;
   list-style: square;
+  list-style-position: outside;
+}
+
+ol {
+  list-style: decimal;
   list-style-position: outside;
 }
 
