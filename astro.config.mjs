@@ -24,5 +24,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [defaultLayoutPlugin]
   },
-  integrations: [tailwind()]
+  integrations: [
+    tailwind({ config: { applyBaseStyles: false } })
+  ]
 })
