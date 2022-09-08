@@ -1,8 +1,7 @@
 /** @return { (import type { MarkdownInstance } from 'astro')[] } */
 export async function Posts () {
-  const result = import.meta.glob('/src/pages/posts/*.md')
-  const entries = [...Object.values(result)]
-  const files = await Promise.all(entries.map(fn => fn()))
+  const result = import.meta.glob('/src/pages/posts/*.md', { eager: true })
+  const files = [...Object.values(result)]
   return files.sort((a, b) =>
 		new Date(b.frontmatter.pubDate).valueOf() -
 		new Date(a.frontmatter.pubDate).valueOf()
