@@ -5,10 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && npm run copy-redirects",
+    "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "copy-redirects": "cp _redirects dist/_redirects"
+    "astro": "astro"
   },
   "dependencies": {
     "astro": "^1.1.5"
