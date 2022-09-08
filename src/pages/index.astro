@@ -1,0 +1,20 @@
+---
+import { Posts } from 'src/posts'
+import Layout from '@layouts/Layout.astro'
+import Post from '@components/posts/Post.astro'
+
+const allPosts = await Posts()
+const posts = allPosts.slice(0, 24)
+---
+
+<Layout title="Dom Christie">
+	<div class="[&>:first-child]:pt-fl-xl-2xl">
+		{posts.map((post, i) => <Post post={post} index={i} />)}
+	</div>
+
+	<p class="text-center" slot="footer">
+		<a class="text-fl-2xl font-sans text-blue-600 dark:text-blue-500" href="/posts">
+			{allPosts.length - posts.length} More <span class="sr-only">Posts</span>
+		</a>
+	</p>
+</Layout>

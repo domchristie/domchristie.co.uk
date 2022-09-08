@@ -1,0 +1,10 @@
+---
+const { href, current } = Astro.props
+---
+<a
+  href={href}
+  aria-current={current ? 'page' : undefined}
+  class="block py-fl-3xs text-blue-600 dark:text-blue-500 border-t-4 border-t-transparent border-b-4 border-b-current current:text-inherit current:border-t-current current:border-b-transparent"
+>
+  <slot />
+</a>

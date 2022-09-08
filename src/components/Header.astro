@@ -1,0 +1,14 @@
+---
+const { heading } = Astro.props
+const fontSize = heading.length > 30 ? 'text-fl-2xl' : 'text-fl-3xl'
+---
+
+<header class="pt-fl-xl-2xl pb-fl-md border-b-4 border-current">
+  <div class="flex flex-col-reverse max-w-6xl mx-auto px-fl-2xs-md">
+    <h1 class:list={['font-sans', fontSize]}>{heading}</h1>
+
+    <div class="self-start mb-fl-2xs empty:hidden">
+      <slot />
+    </div>
+  </div>
+</header>

@@ -1,0 +1,25 @@
+---
+import { Posts } from '../posts'
+import Pages from './Pages.astro'
+import Date from '@components/posts/Date.astro'
+import PrevNext from '@components/posts/PrevNext.astro'
+const { title, frontmatter } = Astro.props
+
+const posts = await Posts()
+const index = posts.map(post => post.url).indexOf(frontmatter.url)
+const prevIndex = index > 0 ? index - 1 : null
+const nextIndex = index < posts.length - 1 ? index + 1 : null
+const prevPost = prevIndex != null && posts[prevIndex]
+const nextPost = nextIndex != null && posts[nextIndex]
+---
+
+<Pages title={title || frontmatter.title}>
+  <Date slot="meta" date={frontmatter.pubDate} />
+
+  <slot />
+
+  <nav slot="footer" aria-label="Previous or Next Post" class="-mt-fl-lg flex justify-between mx-auto px-fl-2xs-md">
+    {prevPost && <PrevNext rel="prev" post={prevPost} />}
+    {nextPost && <PrevNext rel="next" post={nextPost} />}
+  </nav>
+</Pages>

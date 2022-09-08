@@ -1,0 +1,15 @@
+---
+import Layout from './Layout.astro'
+const { props } = Astro
+const title = props.title || props.frontmatter?.title || ''
+---
+
+<Layout title={title} heading={title}>
+  <Fragment slot="meta"><slot name="meta" /></Fragment>
+
+  <div class="prose max-w-6xl mx-auto pt-fl-md pb-fl-lg-2xl px-fl-2xs-md">
+    <slot />
+  </div>
+
+  <Fragment slot="footer"><slot name="footer" /></Fragment>
+</Layout>

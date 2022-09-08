@@ -1,0 +1,116 @@
+@tailwind base;
+
+iframe {
+  width: 100%;
+}
+
+iframe[src^="https://www.youtube"],
+iframe[src^="//www.youtube"],
+iframe[src^="https://player.vimeo"] {
+  aspect-ratio: var(--width, 16) / var(--height, 9);
+}
+
+.prose {
+  @apply space-y-fl-xs;
+}
+
+.prose > * {
+  @apply max-w-3xl
+}
+
+.prose h2 {
+  @apply font-sans text-fl-lg
+}
+
+.prose a {
+  @apply underline text-blue-600 dark:text-blue-500 visited:text-purple-700 dark:visited:text-purple-500;
+}
+
+.prose p code {
+  @apply text-[0.75em] p-fl-3xs bg-white dark:bg-black
+}
+
+.prose q {
+  @apply italic
+}
+
+/* LISTS */
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ul ul,
+.prose ol ul {
+  @apply list-[circle];
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose ul,
+.prose ol {
+  @apply ml-fl-sm
+}
+
+/* BREAKOUTS (blockquotes, code blocks, figures) */
+
+.prose .astro-code {
+  @apply max-w-4xl -mx-fl-2xs-md text-fl-xs px-fl-xs py-fl-2xs my-fl-xs;
+}
+
+.prose blockquote {
+  @apply relative overflow-hidden max-w-4xl px-fl-2xs-md py-fl-sm -mx-fl-2xs-md space-y-fl-xs border-t-4 border-b-4 border-grey-200 bg-white dark:bg-black dark:border-grey-800;
+  @apply before:content-['“'] before:block before:text-fl-4xl before:-mt-fl-2xs before:-mb-fl-sm;
+}
+
+.prose > :not([hidden]) + blockquote:not([hidden]),
+.prose > :not([hidden]) + .astro-code:not([hidden]) {
+  @apply mt-fl-md
+}
+
+.prose > blockquote:not([hidden]) + :not([hidden]),
+.prose > .astro-code:not([hidden]) + :not([hidden]) {
+  @apply mt-fl-md
+}
+
+.prose blockquote > * {
+  @apply !max-w-4xl
+}
+
+.prose blockquote cite {
+  @apply block mt-fl-2xs
+}
+
+.prose figure {
+  @apply max-w-4xl -mx-fl-2xs-md
+}
+
+.prose figure img {
+  @apply p-fl-2xs-xs bg-white dark:bg-black
+}
+
+.prose figcaption {
+  @apply py-fl-3xs px-fl-2xs-xs ml-auto inline-block !mt-fl-3xs text-fl-xs font-sans font-semibold bg-white dark:bg-black
+}
+
+/* HIGHLIGHTS */
+
+article.bg-white figure img,
+article.bg-white p code {
+  @apply bg-grey-50
+}
+
+article.dark\:bg-black figure img,
+article.dark\:bg-black p code {
+  @apply dark:bg-grey-900
+}
+
+@tailwind utilities;
+
+@layer utilities {
+  .image-crisp {
+    image-rendering: pixelated;
+  }
+}

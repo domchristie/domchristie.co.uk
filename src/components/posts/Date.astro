@@ -1,0 +1,8 @@
+---
+import { formatDate } from 'src/date.js'
+const { date } = Astro.props
+---
+
+<time class="block pb-fl-3xs text-fl-xs font-sans font-bold border-b-4 border-current" datetime={date}>
+  {formatDate(date)}
+</time>

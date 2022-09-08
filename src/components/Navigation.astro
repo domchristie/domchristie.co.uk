@@ -1,0 +1,18 @@
+---
+import NavLink from './NavLink.astro'
+const currentPath = Astro.url.pathname
+const LogoTag = currentPath === '/' ? 'h1' : 'div'
+---
+
+<header class="pt-1 flex justify-between font-sans text-fl-base relative px-fl-2xs-md">
+  <LogoTag>
+    <NavLink href="/" current={currentPath === '/'}>
+      Dom Christie
+    </NavLink>
+  </LogoTag>
+
+  <nav aria-label="Main" class="flex space-x-fl-2xs-md">
+    <NavLink href="/about" current={currentPath === '/about'}>About</NavLink>
+    <NavLink href="/posts" current={/^\/posts/.test(currentPath)}>Posts</NavLink>
+  </nav>
+</header>

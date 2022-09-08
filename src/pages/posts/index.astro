@@ -1,0 +1,24 @@
+---
+import { Posts } from 'src/posts'
+import Layout from '@layouts/Layout.astro'
+import Year from '@components/posts/Year.astro'
+
+const allPosts = await Posts()
+
+const years = Object.entries(allPosts.reduce((years, post) => {
+	const year = (new Date(post.frontmatter.pubDate)).getFullYear()
+	years[year] = years[year] || []
+	years[year].push(post)
+	return years
+}, {}))
+
+years.sort((a, b) => Number(b[0]) - Number(a[0]))
+---
+
+<Layout title="Posts" heading="Posts">
+	<div slot="meta">
+		<a class="block pb-fl-3xs text-fl-xs font-sans font-bold text-blue-600 dark:text-blue-500 border-b-4 border-current" href="/feed.xml"><abbr class="no-underline" title="Really Simple Syndication">RSS</abbr></a>
+	</div>
+
+	{years.map((year, i) => <Year year={year[0]} posts={year[1]} index={i} />)}
+</Layout>

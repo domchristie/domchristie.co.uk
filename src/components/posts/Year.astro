@@ -1,0 +1,18 @@
+---
+import { format } from 'date-fns'
+const { year, posts, index } = Astro.props
+---
+
+<article class:list={[(index % 2 === 1 && 'bg-white dark:bg-black'), 'py-fl-md']}>
+  <header class="max-w-6xl mx-auto px-fl-2xs-md mb-fl-3xs pb-fl-3xs">
+    <h2 class="font-sans font-bold">{year}</h2>
+  </header>
+  <div class="max-w-6xl mx-auto px-fl-2xs-md space-y-fl-xs">
+    {posts.map(post => <p>
+      <time class="block text-fl-xs font-sans text-grey-500 dark:text-grey-200" datetime={post.frontmatter.pubDate}>
+        {format(new Date(post.frontmatter.pubDate), 'dd MMM yyyy')}
+      </time>
+      <a class="italic underline text-blue-600 dark:text-blue-500 visited:text-purple-700 dark:visited:text-purple-500" href={post.url}>{post.frontmatter.title}</a>
+    </p>)}
+  </div>
+</article>
