@@ -3,7 +3,7 @@ const { post, post: { frontmatter: { title } }, rel } = Astro.props
 const label = rel === 'next' ? `Next post: ${title}` : `Previous post: ${title}`
 ---
 
-<a rel={rel} aria-label={label} class:list={[{ 'ml-auto text-right': rel === 'next' }, 'flex-1 font-sans text-blue-600 dark:text-blue-500 visited:text-purple-700 dark:visited:text-purple-500']} href={post.url}>
+<a rel={rel} aria-label={label} class:list={[{ 'ml-auto text-right': rel === 'next' }, 'group flex-1 font-sans text-blue-600 dark:text-blue-500']} href={post.url}>
   <span class="block text-fl-2xl">{rel.charAt(0).toUpperCase() + rel.slice(1)}</span>
-  <span class="block text-fl-xs">{title}</span>
+  <span class="block text-fl-xs group-visited:text-purple-700 dark:group-visited:text-purple-500">{title}</span>
 </a>
