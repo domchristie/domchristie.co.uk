@@ -1,3 +1,5 @@
+import { stripTags, imgCount } from "$utils/html"
+
 /** @return { (import type { MarkdownInstance } from 'astro')[] } */
 export async function Posts () {
   const result = import.meta.glob('/src/pages/posts/*.md', { eager: true })
@@ -16,12 +18,4 @@ export function isShort (post) {
     stripTags(content).length <= MAX_CHAR_COUNT &&
     imgCount(content) <= MAX_IMAGES
   )
-}
-
-function stripTags (html) {
-  return html.replace(/\s+/gm, ' ').replace(/<[^>]*>/gm, '')
-}
-
-function imgCount (html) {
-  return html.match(/<img/gi)?.length ?? 0
 }
