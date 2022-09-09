@@ -11,5 +11,6 @@ export const get = () => rss({
     link: post.url,
     title: post.frontmatter.title,
     pubDate: post.frontmatter.pubDate,
+    description: post.compiledContent()
   }))
 });
