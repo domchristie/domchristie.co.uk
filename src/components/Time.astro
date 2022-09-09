@@ -1,0 +1,8 @@
+---
+import { formatDate } from '$utils/date'
+const { date, ...rest } = Astro.props
+---
+
+<time datetime={date} aria-label={formatDate(date, 'LLLL do, yyyy')} datetime={date} {...rest}>
+  <slot />
+</time>
