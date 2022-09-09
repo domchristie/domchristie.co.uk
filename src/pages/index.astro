@@ -1,7 +1,7 @@
 ---
 import { Posts } from 'src/posts'
-import Layout from '@layouts/Layout.astro'
-import Post from '@components/posts/Post.astro'
+import Layout from '$layouts/Layout.astro'
+import Post from '$components/posts/Post.astro'
 
 const allPosts = await Posts()
 const posts = allPosts.slice(0, 24)

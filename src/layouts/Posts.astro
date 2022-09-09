@@ -1,8 +1,8 @@
 ---
 import { Posts } from '../posts'
 import Pages from './Pages.astro'
-import Date from '@components/posts/Date.astro'
-import PrevNext from '@components/posts/PrevNext.astro'
+import Date from '$components/posts/Date.astro'
+import PrevNext from '$components/posts/PrevNext.astro'
 const { title, frontmatter } = Astro.props
 
 const posts = await Posts()

@@ -13,7 +13,7 @@ function defaultLayoutPlugin () {
     )
     if (layouts.has(layout) || existsSync(`./src/layouts/${layout}`)) {
       layouts.add(layout)
-      file.data.astro.frontmatter.layout = `@layouts/${layout}`
+      file.data.astro.frontmatter.layout = `$layouts/${layout}`
     }
   }
 }
