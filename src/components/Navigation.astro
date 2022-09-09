@@ -11,7 +11,7 @@ const LogoTag = currentPath === '/' ? 'h1' : 'div'
     </NavLink>
   </LogoTag>
 
-  <nav aria-label="Main" class="flex space-x-fl-xs-md">
+  <nav aria-label="Main" class="flex space-x-fl-xs-sm">
     <NavLink href="/about" current={/^\/about/.test(currentPath)}>About</NavLink>
     <NavLink href="/posts" current={/^\/posts/.test(currentPath)}>Posts</NavLink>
   </nav>
