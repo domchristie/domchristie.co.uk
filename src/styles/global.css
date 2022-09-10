@@ -102,12 +102,7 @@
 
   article.bg-white figure img,
   article.bg-white p code {
-    @apply bg-grey-50
-  }
-
-  article.dark\:bg-black figure img,
-  article.dark\:bg-black p code {
-    @apply dark:bg-grey-900
+    @apply bg-grey-50 dark:bg-grey-900
   }
 }
 
