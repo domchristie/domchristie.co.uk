@@ -25,4 +25,4 @@ Aside from the removal of the happy handdrawn cartoons, the contrast in copy is 
 
 For Rails apps themselves, the start up graphic has also been removed and I will certainly miss this happy scene 🥲
 
-<figure><img src="/rails-startup.jpg" alt="The old startup image for Ruby on Rails apps picturing a cartoon globe with a diverse crowd of happy people"></figure>
+<figure><img width="896" height="612" src="/rails-startup.jpg" alt="The old startup image for Ruby on Rails apps picturing a cartoon globe with a diverse crowd of happy people"></figure>
