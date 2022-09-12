@@ -13,6 +13,10 @@
     aspect-ratio: var(--width, 16) / var(--height, 9);
   }
 
+  hr {
+    @apply border-t-4 border-grey-200 dark:border-grey-700
+  }
+
   .prose {
     @apply space-y-fl-xs;
   }
