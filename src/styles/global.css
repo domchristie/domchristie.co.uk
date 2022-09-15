@@ -9,6 +9,7 @@
 
   iframe[src^="https://www.youtube"],
   iframe[src^="//www.youtube"],
+  iframe[src^="//player.vimeo"],
   iframe[src^="https://player.vimeo"] {
     aspect-ratio: var(--width, 16) / var(--height, 9);
   }
