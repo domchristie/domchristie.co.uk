@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A. Michael Noll's Pattern Two with HTML Canvas</title>
+  <style>
+    canvas {
+      display: block;
+      margin: 0 auto;
+      transform: scaleY(-1)
+    }
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+  <script>
+    const SIZE = 1024
+    const LINE_COUNT = 100
+    const LINE_SD = 1200
+    const Y_QUADRATIC = (i) => i * (i + 5)
+    const DOT_COUNT = 300
+    const DOT_SD = 75
+    const DOT_OFFSET_X = 200
+    const DOT_OFFSET_Y = 300
+    const JITTER = (n) => n * Math.random() * 1.5
+
+    const linesX = forceDescriptives(
+      randomNumbers(LINE_COUNT),
+      { mean: 0, sd: LINE_SD }
+    ).map(n => ((n % SIZE) + SIZE) / 2) // transform to coords from 0 - SIZE
+
+    const linesY = numbers(LINE_COUNT).map(i => (Y_QUADRATIC(i + 1) % SIZE))
+
+    const dotsX = forceDescriptives(
+      randomNumbers(DOT_COUNT),
+      { mean: 0, sd: DOT_SD }
+    ).map(n => JITTER(n) + DOT_OFFSET_X)
+
+    const dotsY = forceDescriptives(
+      randomNumbers(DOT_COUNT),
+      { mean: 0, sd: DOT_SD }
+    ).map(n => JITTER(n) + DOT_OFFSET_Y)
+
+    // Plot
+    const canvas = document.querySelector('canvas')
+    const context = canvas.getContext('2d')
+    canvas.width = SIZE
+    canvas.height = SIZE
+
+    // Lines
+    context.beginPath()
+    context.moveTo(linesX[0], linesY[0])
+    context.lineWidth = 2
+    for (let i = 1; i < linesX.length - 1; i++) {
+      context.lineTo(linesX[i], linesY[i])
+    }
+    context.stroke()
+    context.closePath()
+
+    // Dots
+    for (i = 0; i < dotsX.length - 1; i++) {
+      context.beginPath()
+      context.arc(dotsX[i], dotsY[i], 1.75, 0, 2 * Math.PI, true)
+      context.fill()
+    }
+
+    // Helpers
+    function numbers (n) {
+      return [...Array(n).keys()]
+    }
+
+    function randomNumbers (n) {
+      return numbers(n).map(_ => Math.random())
+    }
+
+    function sum (array) {
+      return array.reduce((s, n) => s += n)
+    }
+
+    function mean (array) {
+      return sum(array) / array.length
+    }
+
+    function descriptives (array) {
+      const $sum = sum(array)
+      const $mean = mean(array)
+      const sumOfSquaredErrors = sum(array.map(n => Math.pow(n - $mean, 2)))
+      const variance = sumOfSquaredErrors / (array.length - 1)
+      return { mean: $mean, sd: Math.sqrt(variance) }
+    }
+
+    function forceDescriptives (array, $descriptives) {
+      const { mean: $mean, sd: $sd } = $descriptives
+      const { mean: oldMean, sd: oldSd } = descriptives(array)
+      return array.map(n => $sd * (n - oldMean) / oldSd + $mean)
+    }
+  </script>
+</body>
+</html>
