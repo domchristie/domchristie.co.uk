@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "til": "node scaffold-til.js"
   },
   "dependencies": {
     "astro": "^1.1.5"
