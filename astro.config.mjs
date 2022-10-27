@@ -22,7 +22,8 @@ function defaultLayoutPlugin () {
 export default defineConfig({
   site: 'https://domchristie.co.uk',
   markdown: {
-    remarkPlugins: [defaultLayoutPlugin]
+    remarkPlugins: [defaultLayoutPlugin],
+    extendDefaultPlugins: true
   },
   integrations: [
     tailwind({ config: { applyBaseStyles: false } })
