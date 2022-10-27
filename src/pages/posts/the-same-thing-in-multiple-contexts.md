@@ -1,5 +1,5 @@
 ---
-title: The Same Thing in Different Contexts
+title: The Same Thing in Multiple Contexts
 pubDate: 2022-10-27 10:04:50
 emoji: 🧑‍🎓
 tags:
