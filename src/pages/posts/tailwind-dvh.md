@@ -1,7 +1,6 @@
 ---
 title: Dynamic Viewport Height in Tailwind
 pubDate: 2023-03-10 12:18:46
-draft: true
 tags:
   - tailwind
   - css
