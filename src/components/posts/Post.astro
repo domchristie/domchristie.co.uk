@@ -19,8 +19,7 @@ const { post, post: { url, frontmatter: { title, pubDate, tags, emoji } }, index
       isShort(post) && <div class="prose" set:html={post.compiledContent()} /> ||
       <p class="font-sans text-fl-lg">
         <a class="text-blue-600 dark:text-blue-500 visited:text-purple-700 dark:visited:text-purple-500" href={url}>
-          {title}
-          <span aria-hidden="true">&rarr;</span>
+          {title}&nbsp;<span aria-hidden="true">&rarr;</span>
         </a>
       </p>
     }
