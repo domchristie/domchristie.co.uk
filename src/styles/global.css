@@ -34,7 +34,9 @@
     @apply underline text-blue-600 dark:text-blue-500 visited:text-purple-700 dark:visited:text-purple-500;
   }
 
-  .prose p code {
+  .prose p code,
+  .prose li code,
+  .prose h2 code {
     @apply text-[0.75em] p-fl-3xs bg-white dark:bg-black
   }
 
