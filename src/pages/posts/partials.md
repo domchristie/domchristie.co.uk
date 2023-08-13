@@ -5,6 +5,7 @@ emoji: ✂️
 tags:
   - partials
   - ruby on rails
+  - ruby
 ---
 
 Counterarguments to [Joel Drapper's thoughts on Rails Partials](https://twitter.com/joeldrapper/status/1592826867027161088?cxt=HHwWgMDR3ZXm7ZosAAAA). Joel's points are quoted in <i>italics</i>.
