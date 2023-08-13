@@ -1,0 +1,19 @@
+---
+import { Posts } from 'src/posts'
+import Layout from '$layouts/Layout.astro'
+import Post from '$components/posts/Post.astro'
+
+export async function getStaticPaths () {
+  const posts = await Posts()
+  const tags = posts.flatMap(post => post.frontmatter.tags).filter(_ => _)
+  return tags.map(tag => ({ params: { tag } }))
+}
+
+const { tag } = Astro.params
+const posts = (await Posts())
+  .filter(p => (p.frontmatter.tags || []).indexOf(tag) > -1)
+---
+
+<Layout title={`Tagged: ${tag}`} heading={`Tagged: ${tag}`}>
+  {posts.map((post, i) => <Post post={post} index={i} />)}
+</Layout>

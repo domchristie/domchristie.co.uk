@@ -9,7 +9,7 @@ const { year, posts, index } = Astro.props
     <h2 class="font-sans font-bold">{year}</h2>
   </header>
   <div class="max-w-6xl mx-auto px-fl-2xs-md space-y-fl-xs">
-    {posts.map(({ url, frontmatter: { pubDate, title } }) => <p>
+    {posts.map(({ url, frontmatter: { pubDate, title, tags } }) => <p>
       <Time date={pubDate} class="block text-fl-xs font-sans text-grey-500 dark:text-grey-400">
         {formatDate(pubDate)}
       </Time>

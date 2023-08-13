@@ -2,8 +2,9 @@
 import { Posts } from '../posts'
 import Pages from './Pages.astro'
 import Date from '$components/posts/Date.astro'
+import Tags from '$components/posts/Tags.astro'
 import PrevNext from '$components/posts/PrevNext.astro'
-const { title, frontmatter } = Astro.props
+const { title, frontmatter, frontmatter: { file, tags } } = Astro.props
 
 const posts = await Posts()
 const index = posts.map(post => post.url).indexOf(frontmatter.url)
@@ -17,6 +18,12 @@ const nextPost = nextIndex != null && posts[nextIndex]
   <Date slot="meta" date={frontmatter.pubDate} />
 
   <slot />
+
+  {
+    tags?.length && <footer class="max-w-3xl mt-fl-sm pt-fl-sm border-t-4 border-grey-200 dark:border-grey-700">
+      <Tags tags={tags} />
+    </footer>
+  }
 
   <nav slot="footer" aria-label="Previous or Next Post" class="-mt-fl-lg flex justify-between mx-auto px-fl-2xs-md">
     {prevPost && <PrevNext rel="prev" post={prevPost} />}
