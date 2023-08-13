@@ -3,7 +3,7 @@ title: Scoping Controllers by UI Context
 pubDate: 2023-08-12 16:00:32
 emoji: 🛤️
 tags:
-  - rails
+  - ruby on rails
   - ruby
   - ui
 ---

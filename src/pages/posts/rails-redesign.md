@@ -3,7 +3,7 @@ title: Rails Redesign
 pubDate: 2022-09-09 11:34:05
 emoji: 🛤
 tags:
-  - rails
+  - ruby on rails
   - design
 ---
 
