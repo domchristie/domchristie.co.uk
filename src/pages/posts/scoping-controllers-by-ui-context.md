@@ -138,6 +138,10 @@ It's still early days with this approach. I think I still prefer `ContextMenus::
 
 ---
 
+Finally, for UI context naming inspiration, check out [Apple's Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/), particularly [Menus and Actions](https://developer.apple.com/design/human-interface-guidelines/menus-and-actions)
+
+---
+
 ## Appendix
 
 A `Destroyable` controller concern with a `destroy` action that destroys a record and renders a corresponding `turbo_stream` or redirects.
