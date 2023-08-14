@@ -85,12 +85,12 @@ In my experience, these approaches lead to unsatisfactory solutions. Switch stat
 
 When modelling user interfaces, I've found that sticking to [RESTful actions with nested controllers](http://jeromedalbert.com/how-dhh-organizes-his-rails-controllers/) works nicely, i.e. favouring `index`, `new`, `create`, `show`, `edit`, `update`, and `destroy` over custom actions, and nesting controllers in order to do so. This approach helps maintain a standard list of actions and templates and can aid with the discovery of other presentation objects.
 
-When considering top-level naming, again, it's tempting to stick to domain object names, e.g. `Inboxes::MessagesController`, but this would not help us much in the example above. Messages in the inbox can be deleted in at least two ways: by swiping, as well as from the context menu, so we'd still need two `destroy` actions.
+When considering top-level naming, again, it's tempting to stick to domain object names, e.g. <code>Inboxes::<wbr>MessagesController</code>, but this would not help us much in the example above. Messages in the inbox can be deleted in at least two ways: by swiping, as well as from the context menu, so we'd still need two `destroy` actions.
 
-One approach I've been considering is scoping by UI context. For example we could add a `ListItems::MessagesController` and a `ContextMenus::MessagesController`. Each response could update the UI as required:
+One approach I've been considering is scoping by UI context. For example we could add a <code>ListItems::<wbr>MessagesController</code> and a <code>ContextMenus::<wbr>MessagesController</code>. Each response could update the UI as required:
 
-- `ListItems::MessagesController#destroy` could remove message list item
-- `ContextMenus::MessagesController#destroy` could remove the context menu and message
+- <code>ListItems::<wbr>MessagesController#<wbr>destroy</code> could remove message list item
+- <code>ContextMenus::<wbr>MessagesController#<wbr>destroy</code> could remove the context menu and message
 
 ```rb
 # app/controllers/list_items/messages_controller.rb
@@ -130,11 +130,11 @@ Second, it paves the way for other resources to follow the same pattern. A top-l
 
 ## Scope by UI Context or Domain Object?
 
-Should it be `ListItems::MessagesController` or `Messages::ListItemsController`? For the deletion case, I prefer `ListItems::MessagesController`: we're destroying the message in the context of a list item, not the other way round. As mentioned above, it also clarifies the organisation for future list item controls.
+Should it be <code>ListItems::<wbr>MessagesController</code> or <code>Messages::<wbr>ListItemsController</code>? For the deletion case, I prefer <code>ListItems::<wbr>MessagesController</code>: we're destroying the message in the context of a list item, not the other way round. As mentioned above, it also clarifies the organisation for future list item controls.
 
-However, for actions such as `index` and `show`, it doesn't work quite so well. For example, let's say we wanted an endpoint to render a context menu in a Turbo Frame, and we used `ContextMenus::MessagesController#show` to do so. This organisation communicates that this action _shows a message in the context of a list item_. As we're showing a context menu with a list of actions, this framing is a bit of a stretch. `Messages::ContextMenusController#show` might be preferrable in this case, or we could add another layer of nesting: `ContextMenus::Messages::ActionsController#index`.
+However, for actions such as `index` and `show`, it doesn't work quite so well. For example, let's say we wanted an endpoint to render a context menu in a Turbo Frame, and we used <code>ContextMenus::<wbr>MessagesController#<wbr>show</code> to do so. This organisation communicates that this action _shows a message in the context of a list item_. As we're showing a context menu with a list of actions, this framing is a bit of a stretch. <code>Messages::<wbr>ContextMenusController#<wbr>show</code> might be preferrable in this case, or we could add another layer of nesting: <code>ContextMenus::<wbr>Messages::<wbr>ActionsController#<wbr>index</code>.
 
-It's still early days with this approach. I think I still prefer `ContextMenus::MessagesController#show`, and deal with how it might be a bit of a stretch, but I'll see how it goes…
+It's still early days with this approach. I think I still prefer <code>ContextMenus::<wbr>MessagesController#<wbr>show</code>, and deal with how it might be a bit of a stretch, but I'll see how it goes…
 
 ---
 
