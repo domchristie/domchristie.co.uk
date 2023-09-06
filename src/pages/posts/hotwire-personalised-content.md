@@ -1,6 +1,6 @@
 ---
 title: Hotwire & Personalised Content
-pubDate: 2023-08-18 16:02:34
+pubDate: 2023-09-06 08:05:10
 emoji: ⚡️
 tags:
   - hotwire
