@@ -2,7 +2,6 @@
 title: Hotwire & Personalised Content
 pubDate: 2023-08-18 16:02:34
 emoji: ⚡️
-draft: true
 tags:
   - hotwire
   - turbo
@@ -92,8 +91,14 @@ To summarise this flow:
 
 In this way, there's no need to duplicate rendering logic in a Stimulus controller; all personalisation is declared in the message partial.
 
-The downside is that it incurs additional HTTP round-trips, but with modern connections, this may not be an issue.
+## Downsides
+
+The main downside is that it incurs additional HTTP round-trips. To the sender of the message, it might feel a little laggy. In our own Pusher-based app, we append the user's message via the `messages#create` response, and only stream the fetch action to the recipient<sup><a href="#fn2" id="r2">[2]</a></sup>, which helps it feel snappier. The delay in appending the message could be remedied in other ways, e.g. with improved loading feedback, or even an optimistic update, whereby the message is provisionally appended on the client and then updated.
+
+These additional requests will also impact the load on the server. For most cases, this probably won't be a problem, but at larger scales with many connected users, this might be a consideration.
 
 ---
 
 <p id="fn1" class="text-fl-sm"><a class=" after:content-['⤴']" href="#r1">[1]</a> Using <a href="https://api.rubyonrails.org/classes/ActionDispatch/Routing/UrlFor.html#method-i-url_for"><code>url_for</code></a> means <code>url</code> can be either a string or Active Record object (or any other object that <code>url_for</code> supports). It’s particularly useful in our case as we can generate a URL for the newly created <code>Message</code> in our model, without having to call a URL helper.</p>
+
+<p id="fn2" class="text-fl-sm"><a class=" after:content-['⤴']" href="#r2">[2]</a> Pusher has a feature that can filter out user-sent events, so the fetch event is not broadcast to the user and therefore the message does not get appended twice.</p>
