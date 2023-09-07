@@ -75,6 +75,8 @@ end
 
 For the other cases, there are few approaches.
 
+_See the follow up: [UI Context and Rails Variants](/posts/ui-context-and-rails-variants/) for a rethink on the below approach._
+
 First, we might be tempted to reuse and expand our `destroy` action by switching the response based on the context. We could achieve this by setting a `context` param on our destroy form.
 
 Alternatively we might choose to add further actions to our `MessagesController` (e.g.`destroy_in_list` or `destroy_in_context_menu`).
