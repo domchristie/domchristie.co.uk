@@ -11,7 +11,7 @@
     "til": "node scaffold-til.js"
   },
   "dependencies": {
-    "astro": "^1.6.0"
+    "astro": "^1.9.2"
   },
   "devDependencies": {
     "@astrojs/rss": "^1.0.0",
