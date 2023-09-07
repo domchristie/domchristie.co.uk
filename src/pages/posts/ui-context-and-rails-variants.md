@@ -1,6 +1,6 @@
 ---
 title: UI Context and Rails Variants
-pubDate: 2023-09-06 08:26:04
+pubDate: 2023-09-07 08:35:52
 emoji: 🛤️
 tags:
   - ruby on rails
