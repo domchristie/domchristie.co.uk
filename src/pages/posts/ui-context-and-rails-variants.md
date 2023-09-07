@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-From here was can customise our responses. We could do this via templates, e.g. `app/views/messages/destroy.turbo_stream+list_items.erb`, or via a `respond_to` call:
+From here we can customise our responses. We could do this via templates or via a `respond_to` call:
 
 ```rb
 class MessagesController < ApplicationController
