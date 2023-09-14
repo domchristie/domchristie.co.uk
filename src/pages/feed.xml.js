@@ -5,7 +5,7 @@ const posts = await Posts()
 
 export const get = () => rss({
   title: 'Dom Christie',
-  description: 'Born in Denmark. Grew up in London. Live in L.A.',
+  description: 'UK-based design engineer specialising in Ruby on Rails, JavaScript, and Web Audio.',
   site: import.meta.env.SITE,
   items: posts.map((post) => ({
     link: post.url,
