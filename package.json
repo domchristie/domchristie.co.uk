@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "til": "node scaffold-til.js"
+    "til": "node scaffold-til.js",
+    "post": "node scaffold-post.js"
   },
   "dependencies": {
     "astro": "^1.9.2"
