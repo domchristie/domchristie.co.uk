@@ -1,7 +1,8 @@
 ---
 import { isShort } from 'src/posts'
 import Date from './Date.astro';
-const { post, post: { url, frontmatter: { title, pubDate, tags, emoji } }, index } = Astro.props
+const { post, post: { url, frontmatter: { title, description, pubDate, tags, emoji } }, index } = Astro.props
+const isDescribable = !isShort(post) && description
 ---
 
 <article class:list={[(index % 2 === 0 ? 'bg-white dark:bg-black' : ''), 'py-fl-md']}>
@@ -22,6 +23,10 @@ const { post, post: { url, frontmatter: { title, pubDate, tags, emoji } }, index
           {title}&nbsp;<span aria-hidden="true">&rarr;</span>
         </a>
       </p>
+
+    }
+    {
+      isDescribable && <p class="text-fl-sm text-grey-500 dark:text-grey-400">{description}</p>
     }
   </div>
 </article>
