@@ -25,6 +25,6 @@ export default defineConfig({
     remarkPlugins: [defaultLayoutPlugin]
   },
   integrations: [
-    tailwind({ config: { applyBaseStyles: false } })
+    tailwind({ applyBaseStyles: false })
   ]
 })
