@@ -19,7 +19,7 @@ module.exports = {
 		},
 	},
 	plugins: [
-		require('tailwind-utopia'),
+		require('@domchristie/tailwind-utopia'),
 		plugin(function ({ addVariant }) {
 			addVariant('current', '&[aria-current="page"]')
 		})

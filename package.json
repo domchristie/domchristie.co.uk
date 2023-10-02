@@ -12,12 +12,12 @@
     "post": "node scaffold-post.js"
   },
   "dependencies": {
-    "astro": "^1.9.2"
+    "astro": "^2.10.14"
   },
   "devDependencies": {
-    "@astrojs/rss": "^1.0.0",
-    "@astrojs/tailwind": "^1.0.0",
-    "date-fns": "^2.29.2",
-    "tailwind-utopia": "github:domchristie/tailwind-utopia"
+    "@astrojs/rss": "^2.0.0",
+    "@astrojs/tailwind": "^4.0.0",
+    "@domchristie/tailwind-utopia": "^1.0.1",
+    "date-fns": "^2.29.2"
   }
 }
