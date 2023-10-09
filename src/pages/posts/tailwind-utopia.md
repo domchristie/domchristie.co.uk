@@ -1,5 +1,6 @@
 ---
 title: Tailwind Utopia
+description: Breakpoint-free fluid type and spacing with Tailwind and the utopia.fyi approach
 pubDate: 2023-10-09 07:32:43
 emoji: 🍃
 tags:
