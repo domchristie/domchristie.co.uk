@@ -36,7 +36,7 @@ Spacing pairs can also be generated, taking the fluid value for the smallest siz
 The benefit of using a CSS generator like Tailwind, is that any number of these spacing pairs can be generated on-the-fly. Simply apply the fluid class names the HTML, and the spacing pair is generated:
 
 ```html
-<h1 class="mt-fl-sm-lg">Hello, world!</h1>
+<h1 class="mt-fl-sm-lg">Hello, world!</h1><!-- fluid margin top from sm-lg -->
 ```
 
 So this is what [Tailwind Utopia](https://github.com/domchristie/tailwind-utopia) does.
