@@ -30,6 +30,10 @@
     @apply font-sans text-fl-lg
   }
 
+  .prose h3 {
+    @apply font-sans
+  }
+
   .prose a {
     @apply underline text-blue-600 dark:text-blue-500 visited:text-purple-700 dark:visited:text-purple-500;
   }
