@@ -10,9 +10,9 @@ tags:
   - i'm a teapot
 ---
 
-You probably shouldn't do this, but I've been upgrading an app from Turbolinks to Turbo, and there are a number of controller actions that `render` successful responses after form submissions. Turbo expects the server to return an HTTP `303 See Other` response in these cases, so returning `2xx` won't render anything. However, Turbo does render error responses (`4xx` and `5xx`).
+_You probably shouldn't do this, but anyway…_ I've been upgrading an app from Turbolinks to Turbo, and there are a number of controller actions that `render` successful responses after form submissions. Turbo expects the server to return an HTTP `303 See Other` response in these cases, so returning `2xx` won't render anything. However, Turbo does render error responses (`4xx` and `5xx`).
 
-The HTTP status `418 I'm a teapot` April Fools' joke, so it's basically nonsense, but we can use it as a temporary workround for Turbo's requirements. For example:
+The HTTP status `418 I'm a teapot` was an April Fools' joke, so it's basically nonsense, but we can use it as a temporary workround for Turbo's requirements. For example:
 
 ```rb
 class PostsController < ApplicationController
