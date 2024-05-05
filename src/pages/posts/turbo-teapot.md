@@ -1,6 +1,6 @@
 ---
 title: Turbo Teapot
-description: A reasonably legitimate use of HTTP Status 418, to work around Turbo's rendering limitation
+description: A reasonably legitimate use of HTTP Status 418 to work around Turbo's rendering limitation
 pubDate: 2024-05-05 14:38:50
 emoji: 🫖
 tags:
