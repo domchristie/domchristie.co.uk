@@ -77,7 +77,7 @@ In fact, it looks like the original example failed to include the `data-active` 
 <%= link_to "Dashboard", "/dashboard", class: classes, data: {active: current_page?("/dashboard")} %>
 ```
 
-This looks similar to the `@apply` approach, but it keeps the classes in the same file as the markup. However, we've only reduce the repetition of the CSS classes. The `current_page?` check is still repetitive. Adding another link would require adding link text, a path, and ensuring the `active` logic is correct.
+This looks similar to the `@apply` approach, but it keeps the classes in the same file as the markup. However, we've only reduced the repetition of the CSS classes. The `current_page?` check is still repetitive. Adding another link would require adding link text, a path, and ensuring the `active` logic is correct.
 
 ## 3. Loop
 
