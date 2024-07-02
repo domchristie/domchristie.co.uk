@@ -1,6 +1,6 @@
 ---
 title: Tailwind Repetition
-description: Approaches to dealing with repetitive Tailwind CSS classes
+description: Alternatives to @apply when reducing Tailwind CSS class repetition
 pubDate: 2024-07-01 21:23:28
 emoji: 🔁
 tags:
