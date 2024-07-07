@@ -26,12 +26,12 @@
     @apply max-w-3xl
   }
 
-  .prose h2 {
-    @apply font-sans text-fl-lg
+  .prose > h2 {
+    @apply font-sans text-fl-lg !mt-fl-lg
   }
 
   .prose h3 {
-    @apply font-sans
+    @apply font-sans !mt-fl-md
   }
 
   .prose a {
