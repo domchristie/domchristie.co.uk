@@ -1,5 +1,6 @@
 ---
 title: Optimistic UI with Ruby on Rails & Hotwire
+description: A proof-of-concept for optimistic UI with Hotwire and Rails
 pubDate: 2024-07-07 14:53:50
 emoji: 🤞
 tags:
