@@ -12,11 +12,11 @@
     "post": "node scaffold-post.js"
   },
   "dependencies": {
-    "astro": "^2.10.14"
+    "astro": "^4.16.1"
   },
   "devDependencies": {
     "@astrojs/rss": "^2.0.0",
-    "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/tailwind": "^5.1.2",
     "@domchristie/tailwind-utopia": "^1.0.1",
     "date-fns": "^2.29.2"
   }
