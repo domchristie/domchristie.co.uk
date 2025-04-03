@@ -105,7 +105,7 @@ This really cleans up the repetition. The classes and active attributes are only
 <% end %>
 ```
 
-But the deeper benefit is that the code is beginning to reveal potential improvements for how to model the UI. The collection of values suggests thee presence of an underlying object.
+But the deeper benefit is that the code is beginning to reveal potential improvements for how to model the UI. The collection of values suggests the presence of an underlying object.
 
 If the navigation requirements were to become more complex, you might consider encapsulating these values in a class and rendering them as follows:
 
@@ -217,7 +217,7 @@ module UiHelper
 end
 ```
 
-The [ActionView::Attributes gem](https://github.com/seanpdoyle/action_view-attributes) adds enhances Rails' `tag.attributes` helper. It makes it easy to build collections of HTML attributes for sharing in various contexts and elements. It's really smart about how attributes are merged. For example:
+The [ActionView::Attributes gem](https://github.com/seanpdoyle/action_view-attributes) enhances Rails' `tag.attributes` helper. It makes it easy to build collections of HTML attributes for sharing in various contexts and elements. It's really smart about how attributes are merged. For example:
 
 ```rb
 tag.attributes(class: "text-bold").merge(class: "text-blue-700")
