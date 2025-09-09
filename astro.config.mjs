@@ -21,6 +21,7 @@ function defaultLayoutPlugin () {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://domchristie.co.uk',
+  trailingSlash: 'always',
   markdown: {
     remarkPlugins: [defaultLayoutPlugin]
   },
